@@ -300,6 +300,10 @@ annual_generation = st.number_input(
     'Annual Generation in Lakhs',
     help= "Example: 10.0"
 )
+def smart_number(x):
+    if float(x).is_integer():
+        return str(int(x))
+    return str(x)   
 
 context = {
     "proposal_no": proposal_no,
@@ -307,14 +311,15 @@ context = {
     "off_taker": off_taker,
     "designation": designation,
     "company_name": company_name,
-    "capacity_plant": capacity_plant,
+    "capacity_plant": smart_number(capacity_plant),
     "short_address": short_address,
     "long_address": long_address,
-    "deposit": f"{deposit:.2f}",
-    "tariff": f"{tariff:.2f}",
-    "increment": f"{increment:.1f}",
-    "annual_generation": f"{annual_generation:.2f}",
+    "deposit": smart_number(deposit),
+    "tariff": smart_number(tariff),
+    "increment": smart_number(increment),
+    "annual_generation": smart_number(annual_generation),
 }
+
 
 if st.button("Generate Proposal"):
     
