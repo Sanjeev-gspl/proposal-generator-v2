@@ -240,7 +240,7 @@ st.title("OPEx Proposal Generator")
 
 proposal_no = st.text_input(
     "Proposal Number",
-    placeholder="GSPL/PPA/2025-26/026R1"
+    value="GSPL/PPA/2025-26/026R1"
 )
 
 proposal_date = st.date_input(
